@@ -1,4 +1,6 @@
-function handleLogin(event,setPassWarn,setUserWarn,setUserNotFound,credentials){
+import { setCookie,getCookie } from '../functions'; 
+
+function handleLogin(event,setPassWarn,setUserWarn,setUserNotFound,credentials,navigate){
     event.preventDefault();
     let username = credentials.username;
     let password = credentials.password;
@@ -39,7 +41,8 @@ function handleLogin(event,setPassWarn,setUserWarn,setUserNotFound,credentials){
         }
     })
     .then((data)=>{
-        console.log(data);
+        setCookie("token",data.token,60);
+        navigate('/shop', { state: data });
     })
     .catch((error)=>{
         setUserNotFound(error.message);

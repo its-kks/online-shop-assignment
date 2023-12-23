@@ -3,7 +3,12 @@ import './login.css'
 import Input from './Input';
 import shopImage from  '../assets/online_shop.jpg'
 import handleLogin from './functions';
+import { setCookie,getCookie } from '../functions'; 
+import { useNavigate } from 'react-router-dom';
+
 function Login(){
+
+    const navigate = useNavigate();
     const [credentials,setCredentials] = useState({
         username:"",
         password:""
@@ -49,7 +54,7 @@ function Login(){
                         type='submit' 
                         className='loginButton' 
                         onClick={(event)=>{
-                            handleLogin(event,setPassWarn,setUserWarn,setUserNotFound,credentials)}
+                            handleLogin(event,setPassWarn,setUserWarn,setUserNotFound,credentials,navigate)}
                         }>
                         Login
                     </button>
