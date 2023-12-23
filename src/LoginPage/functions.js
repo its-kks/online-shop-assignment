@@ -1,6 +1,6 @@
 import { setCookie,getCookie } from '../functions'; 
 
-function handleLogin(event,setPassWarn,setUserWarn,setUserNotFound,credentials,navigate){
+async function handleLogin(event,setPassWarn,setUserWarn,setUserNotFound,credentials,navigate){
     event.preventDefault();
     let username = credentials.username;
     let password = credentials.password;
@@ -31,23 +31,19 @@ function handleLogin(event,setPassWarn,setUserWarn,setUserNotFound,credentials,n
     }
     const url = 'https://dummyjson.com/auth/login';
 
-    fetch(url,head)
-    .then((response)=>{
+    try {
+        const response = await fetch(url,head);
         if (response.status === 200) {
-            return response.json();
+            const data = await response.json();
+            setCookie("token",data.token,60);
+            navigate('/shop', { state: data });
         } 
         else if (response.status === 400){
             throw new Error('Failed to login');
         }
-    })
-    .then((data)=>{
-        setCookie("token",data.token,60);
-        navigate('/shop', { state: data });
-    })
-    .catch((error)=>{
+    } catch(error) {
         setUserNotFound(error.message);
-    })
-
+    }
 }
 
 export default handleLogin;

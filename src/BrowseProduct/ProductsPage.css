@@ -1,20 +1,133 @@
+@import '../assets/Colors.css';
+body::-webkit-scrollbar {
+    display: none;
+}
+body{
+    overflow: hidden;
+}
 .logo{
     border-radius: 50%;
     height: 5vh;
-    border: 1px solid white;
-    background: black;
     margin:0.5vw;
+    background: var(--faded-blue);
+    border: 1px solid var(--dark-blue);
+}
+.cartLogo{
+    height: 5vh;
+    margin-right: 1vw;
 }
 .navigation{
     height: 6vh;
     width: 100vw;
     display: flex;
     align-items: center;
+    background: var(--dark-yellow);
+    justify-content: space-between;
+
+}
+.body{
+    width: 100vw;
+    height: 94vh;
+    display: flex;
+    justify-content: space-between;
 }
 .productContainer{
     height: 94vh;
+    width: 86vw;
+    display: flex;
+    justify-content: center;
 }
 .divColCentre{
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+.thumbnail{
+    height: 20vh;
+    max-width: 100%;
+}
+.divRowCentre{
+    display: flex;
+
+}
+.rating{
+    width: 2vh;
+}
+
+.singleItem{
+    width: 80vw;
+    display: flex;
+    align-items: center;
+    margin:1vw;
+    background-color: var(--faded-blue);
+
+}
+.singleItemImage{
+    width: 24vw;
+    margin:1vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    border: 2px solid var(--dark-blue);
+}
+.singleItemDes1{
+    width: 32vw;
+    margin:1vw;
+    background:var(--dark-blue);
+    border-radius: 10px;
+    padding-left:2vw;
+    color: var(--faded-blue);
+}
+.singleItemDes1 > h1{
+    color: var(--dark-yellow);
+}
+.singleItemDes2{
+    width: 24vw;
+    margin:1vw;
+    background:var(--dark-purple);
+    padding:1vw;
+    border-radius:5px;
+    color: var(--faded-blue);
+    display: flex;
+    justify-content: space-between;
+}
+
+.cartContainer{
+    height: 94vh;
+    width: 14vw;
+    display: flex;
+    flex-direction: column;
+}
+.cartItem{
+    width: 10vw;
+    margin: 1vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color:var(--dark-blue);
+    border-bottom: 1px solid var(--dark-yellow);
+}
+.cartItemFoot{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+.cartItemImage{
+    width: 8vw;
+    height: 8vw;
+    margin: 1vw;
+    border-radius: 50%;
+}
+.cartItemHead{
+    font-weight: bold;
+    margin-top: 0.5vw;
+    font-size: large;
+}
+.binButton{
+    border: none;
+    background: none;
 }

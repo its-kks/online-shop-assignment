@@ -55,7 +55,8 @@ function Login(){
                         className='loginButton' 
                         onClick={(event)=>{
                             handleLogin(event,setPassWarn,setUserWarn,setUserNotFound,credentials,navigate)}
-                        }>
+                        }
+                        >
                         Login
                     </button>
                     {userNotFound.length != 0 ? <p  className='warning'>{userNotFound}</p> : null}
