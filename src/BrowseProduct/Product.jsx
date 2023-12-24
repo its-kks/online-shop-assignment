@@ -3,7 +3,7 @@ import './ProductsPage.css';
 import Rating from './Rating'
 import Images from './Images'
 import addToCart from '../assets/addToCart.png'
-function Product({title,description,price,discount,rating,category,images,thumbnail,cartItems,setCartItems,totalCost,setTotalCost}){
+function Product({title,description,price,discount,rating,category,images,thumbnail,cartItems,setCartItems,totalCost,setTotalCost,cartCount,setCartCount}){
     const [showImages,setShowImages] = useState();
     return (
         <div >
@@ -22,6 +22,7 @@ function Product({title,description,price,discount,rating,category,images,thumbn
                     <h4>{"-"+discount+"%"}</h4>
                     <h4>{category}</h4>
                     </div>
+                    <button style={{background:'none',border:0}}>
                     <img src={addToCart} style={{height:"5vw"}}
                         onClick={()=>{
                             if(!cartItems[title]){
@@ -39,8 +40,12 @@ function Product({title,description,price,discount,rating,category,images,thumbn
 
                             //update total
                             setTotalCost(totalCost+parseInt(price));
+
+                            //update count
+                            setCartCount(cartCount+1);
                         }}
                     />
+                    </button>
                 </div>
             </div>
             {showImages ? <Images/> : null}

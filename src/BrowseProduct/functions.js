@@ -38,5 +38,19 @@ async function searchProducts(querry){
     }
 
 }
+function sortItems(order, products, setProducts) {
+    let sortedProducts;
 
-export {getProducts,searchProducts};
+    if (order === 'none') {
+        sortedProducts = [...products].sort((a, b) => a.id - b.id);
+    } 
+    else if (order === 'asc') {
+        sortedProducts = [...products].sort((a, b) => a.price - b.price);
+    } 
+    else if (order === 'desc') {
+        sortedProducts = [...products].sort((a, b) => b.price - a.price);
+    }
+    setProducts([...sortedProducts]);
+}
+
+export {getProducts,searchProducts,sortItems};

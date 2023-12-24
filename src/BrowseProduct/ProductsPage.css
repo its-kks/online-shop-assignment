@@ -12,7 +12,7 @@ body{
     background: var(--faded-blue);
     border: 1px solid var(--dark-blue);
 }
-.cartLogo,.filterLogo{
+.cartLogo{
     height: 5vh;
     margin-right: 1vw;
 }
@@ -24,6 +24,7 @@ body{
     padding: 0.2vw;
     border-radius: 5px;
     transform: scale(0.8);
+    position: relative
 }
 .searchInput::placeholder {
     color: var(--faded-blue);
@@ -48,6 +49,40 @@ body{
 .buttonFilterSearch:active{
     transform: scale(0.8);
 }
+.filterList{
+    position: fixed;
+    z-index: 9999;
+    height: fit-content;
+    width: 200px;
+    background: var(--dark-yellow);
+    border-radius: 10px;
+    border:0.2vw solid var(--dark-purple);
+    left:18vw;
+    top:0.2vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.3vw;
+    color: var(--dark-purple);
+    font-weight: bolder;
+}
+.cartCount{
+    background-color: var(--dark-blue);
+    position: absolute;
+    z-index: 9999;
+    top:0.2vh;
+    right:0.1vw;
+    border-radius: 50%;
+    border:0.1vw solid var(--faded-yellow);
+    color:var(--faded-yellow);
+    font-size:0.7vw;
+    padding: 0.1vw;
+    width: 1vw;
+    height: 1vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .navigation{
     height: 6vh;
     width: 100vw;
@@ -62,6 +97,7 @@ body{
     height: 94vh;
     display: flex;
     justify-content: space-between;
+    position: relative;
 }
 .productContainer{
     height: 94vh;

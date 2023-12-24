@@ -56,6 +56,11 @@ body{
 .loginButton{
   width: fit-content;
   padding:1vh 1vw 1vh 1vw;
+  border:1px solid var(--faded-blue);
+  border-radius: 8px;
+  background: var(--dark-blue);
+  color:var(--faded-blue);
+  font-size: 20px;
 }
 .loginButton:active{
   transform: scale(0.97);

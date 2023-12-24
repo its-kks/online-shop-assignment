@@ -21,6 +21,7 @@ function ProductsPage() {
     const [cartItems,setCartItems] = useState({});
     const [showCart,setShowCart] = useState(false);
     const [totalCost,setTotalCost] = useState(0);
+    const [cartCount,setCartCount] = useState(0);
     useEffect(() => {
         const fetchProducts = async () => {
             try {
@@ -42,12 +43,15 @@ function ProductsPage() {
                 products={products}
                 setProducts={setProducts}
             />
-            <img src={showCart ?cartUp : cartDown}
-                className='cartLogo'
-                onClick={()=>{
-                let curr = showCart;
-                setShowCart(!curr);
-            }}/>
+            <div style={{position:'relative'}}>
+                <div className='cartCount'>{cartCount}</div>
+                <img src={showCart ?cartUp : cartDown}
+                    className='cartLogo'
+                    onClick={()=>{
+                    let curr = showCart;
+                    setShowCart(!curr);
+                }}/>
+            </div>
         </nav>
         <div className='body'>
             <div className='productContainer'>
@@ -66,6 +70,8 @@ function ProductsPage() {
                             setCartItems={setCartItems}
                             setTotalCost={setTotalCost}
                             totalCost={totalCost}
+                            cartCount={cartCount}
+                            setCartCount={setCartCount}
                         />
                     ))}
                 </SimpleBar>
@@ -83,6 +89,8 @@ function ProductsPage() {
                             setCartItems={setCartItems}
                             setTotalCost={setTotalCost}
                             totalCost={totalCost}
+                            cartCount={cartCount}
+                            setCartCount={setCartCount}
                         />
                     ))}
                 </SimpleBar>

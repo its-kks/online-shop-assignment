@@ -5,11 +5,6 @@
 body{
   margin: 0px;
 }
-button{
-  border:1px solid var(--faded-blue);
-  border-radius: 8px;
-  background: var(--dark-blue);
-  color:var(--faded-blue);
-  font-size: 20px;
-
+button:active{
+  transform:scale(0.8);
 }
