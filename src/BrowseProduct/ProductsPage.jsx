@@ -8,6 +8,7 @@ import 'simplebar-react/dist/simplebar.min.css';
 import CartItem from './CartItem'
 import cartDown from '../assets/cartDown.png'
 import cartUp from '../assets/cartUp.png'
+import SearchAndFilter from './searchAndFilter'
 
 function ProductsPage() {
     const location = useLocation();
@@ -19,6 +20,7 @@ function ProductsPage() {
     const [products, setProducts] = useState([]);
     const [cartItems,setCartItems] = useState({});
     const [showCart,setShowCart] = useState(false);
+    const [totalCost,setTotalCost] = useState(0);
     useEffect(() => {
         const fetchProducts = async () => {
             try {
@@ -36,6 +38,10 @@ function ProductsPage() {
     <div className='divColCentre'> 
         <nav className='navigation'>
             <img src={image} className='logo'/>
+            <SearchAndFilter
+                products={products}
+                setProducts={setProducts}
+            />
             <img src={showCart ?cartUp : cartDown}
                 className='cartLogo'
                 onClick={()=>{
@@ -58,12 +64,14 @@ function ProductsPage() {
                             category={product.category}
                             cartItems={cartItems}
                             setCartItems={setCartItems}
+                            setTotalCost={setTotalCost}
+                            totalCost={totalCost}
                         />
                     ))}
                 </SimpleBar>
             </div>
             {showCart ?<div className='cartContainer'>
-                <SimpleBar className='productContainer'>
+                <SimpleBar className='cartList'>
                     {Object.keys(cartItems).map((key) => (
                         <CartItem
                             key={key}
@@ -73,9 +81,14 @@ function ProductsPage() {
                             thumbnail={cartItems[key].image}
                             cartItems={cartItems}
                             setCartItems={setCartItems}
+                            setTotalCost={setTotalCost}
+                            totalCost={totalCost}
                         />
                     ))}
                 </SimpleBar>
+                <div style={{display:'flex',justifyContent:'center',marginTop:'0.5vw'}}>
+                    <div className='cartTotal'>Total:{" $"+totalCost}</div>
+                </div>
             </div> : null}
         </div>
     </div>

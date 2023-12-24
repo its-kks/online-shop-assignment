@@ -3,7 +3,7 @@ import './ProductsPage.css';
 import Rating from './Rating'
 import Images from './Images'
 import addToCart from '../assets/addToCart.png'
-function Product({title,description,price,discount,rating,category,images,thumbnail,cartItems,setCartItems}){
+function Product({title,description,price,discount,rating,category,images,thumbnail,cartItems,setCartItems,totalCost,setTotalCost}){
     const [showImages,setShowImages] = useState();
     return (
         <div >
@@ -36,6 +36,9 @@ function Product({title,description,price,discount,rating,category,images,thumbn
                             }
                             setCartItems({...cartItems});
                             console.log(cartItems);
+
+                            //update total
+                            setTotalCost(totalCost+parseInt(price));
                         }}
                     />
                 </div>

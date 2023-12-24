@@ -12,9 +12,41 @@ body{
     background: var(--faded-blue);
     border: 1px solid var(--dark-blue);
 }
-.cartLogo{
+.cartLogo,.filterLogo{
     height: 5vh;
     margin-right: 1vw;
+}
+.searchFilterDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--faded-yellow);
+    padding: 0.2vw;
+    border-radius: 5px;
+    transform: scale(0.8);
+}
+.searchInput::placeholder {
+    color: var(--faded-blue);
+}
+.searchInput{
+    padding:1vh 0.4vw 1vh 0.4vw;
+    font-size: 18px;
+    width: fit-content;
+    border-radius: 5px;
+    background: var(--dark-blue);
+    color:var(--faded-blue);
+}
+.searchInput:focus{
+    background-color: var(--faded-blue);
+    color:var(--dark-blue);
+}
+.buttonFilterSearch{
+    font-size: 1.8vw;
+    background: none;
+    border: 0px;
+}
+.buttonFilterSearch:active{
+    transform: scale(0.8);
 }
 .navigation{
     height: 6vh;
@@ -62,7 +94,7 @@ body{
     display: flex;
     align-items: center;
     margin:1vw;
-    background-color: var(--faded-blue);
+    border-bottom:1px solid var(--faded-blue);
 
 }
 .singleItemImage{
@@ -130,4 +162,19 @@ body{
 .binButton{
     border: none;
     background: none;
+}
+.cartList{
+    height: 88vh;
+    width: 86vw;
+    display: flex;
+    justify-content: center;
+}
+.cartTotal{
+    font-size: larger;
+    background-color: var(--dark-yellow);
+    color:var(--dark-blue);
+    font-weight: bold;
+    width: fit-content;
+    padding: 0.5vw;
+    border-radius: 10px;
 }

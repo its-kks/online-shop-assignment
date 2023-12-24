@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './ProductsPage.css';
-function CartItem({title,price,thumbnail,quantity,cartItems,setCartItems}){
+function CartItem({title,price,thumbnail,quantity,cartItems,setCartItems,totalCost,setTotalCost}){
     return (
         <div className='cartItem'>
             <div className='cartItemHead'>
@@ -19,6 +19,10 @@ function CartItem({title,price,thumbnail,quantity,cartItems,setCartItems}){
                         cartItems[title].quantity -= 1;
                     }
                     setCartItems({...cartItems});
+                    
+                    //update total
+                    setTotalCost(totalCost-parseInt(price));
+
                 }}>🗑️</button>
             </div>
         </div>
